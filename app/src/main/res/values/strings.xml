@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PlanetsInfo</string>
+    <string name="description_content_main_imageview">main_imageview_planets</string>
+    <string name="description_content_main_imageview_venus">main_imageview_planet_venus</string>
+</resources>

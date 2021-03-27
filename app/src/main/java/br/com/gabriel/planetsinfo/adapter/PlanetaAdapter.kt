@@ -15,9 +15,11 @@ class PlanetaAdapter (
                         private val hashmapImages:HashMap<String,Int>
 ): RecyclerView.Adapter<PlanetaAdapter.PlanetaViewHolder>() {
 
+    private var listener: OnPlanetaItemListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetaViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.planeta_item,parent,false)
-        return PlanetaViewHolder(view)
+        return PlanetaViewHolder(view,listener)
     }
 
     override fun getItemCount(): Int {
@@ -25,14 +27,23 @@ class PlanetaAdapter (
     }
 
     override fun onBindViewHolder(holder: PlanetaViewHolder, position: Int) {
-        holder.itemNomePlaneta.text = planetas[position].getNome()
-        Log.i("Valor",hashmapImages.get(planetas[position].getNomeImagem())!!.toString())
-        holder.itemImagemPlaneta.setImageResource(hashmapImages.get(planetas[position].getNomeImagem())!!)
+        holder.itemNomePlaneta.text = planetas[position].nome
+        holder.itemImagemPlaneta.setImageResource(hashmapImages.get(planetas[position].nomeImagem)!!)
 
     }
 
-    class PlanetaViewHolder (view: View): RecyclerView.ViewHolder(view){
+    fun setOnPlanetaItemListener(listener: OnPlanetaItemListener){
+        this.listener = listener
+    }
+
+    class PlanetaViewHolder (view: View, listener: OnPlanetaItemListener?): RecyclerView.ViewHolder(view){
         val itemNomePlaneta: TextView = view.findViewById(R.id.planeta_item_textview_nome)
         val itemImagemPlaneta: ImageView = view.findViewById(R.id.planeta_item_imageview)
+
+        init {
+            view.setOnClickListener {
+                listener?.onClick(it,adapterPosition)
+            }
+        }
     }
 }

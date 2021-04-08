@@ -1,13 +1,12 @@
 package br.com.gabriel.planetsinfo.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import br.com.gabriel.planetsinfo.R
-import br.com.gabriel.planetsinfo.model.Planeta
-import br.com.gabriel.planetsinfo.util.ImagensRepository
+import br.com.gabriel.planetsinfo.enum.Position
+import br.com.gabriel.planetsinfo.util.PlanetaRepository
 
 class DetailActivity : AppCompatActivity() {
 
@@ -15,18 +14,19 @@ class DetailActivity : AppCompatActivity() {
     private var nomePlaneta: TextView? = null
     private var tipoPlaneta: TextView? = null
     private var descricaoPlaneta: TextView? = null
-    private val listaImagens = ImagensRepository.getKeyImageView()
+    private val listaPlanetas = PlanetaRepository.getAll()
+    private val tituloTela = "Detalhes"
+    private val valorDefault = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         carregarElementos()
+        setTitle(tituloTela)
         val intent = getIntent()
-
-        if(intent.hasExtra("detail")){
-            setTitle("Detalhes")
-            var planeta = intent.getSerializableExtra("detail") as Planeta
-            preencherCampos(planeta)
+        val posicao = intent.getIntExtra(Position.POSICAO.name,valorDefault)
+        if(posicao != valorDefault){
+            preencherCampos(posicao)
         }
     }
 
@@ -37,10 +37,10 @@ class DetailActivity : AppCompatActivity() {
         descricaoPlaneta = findViewById(R.id.activity_detail_descricao_planeta)
     }
 
-    fun preencherCampos(planeta: Planeta){
-        imagemPlaneta?.setImageResource(listaImagens.get(planeta.nomeImagem)!!)
-        nomePlaneta?.setText(planeta.nome)
-        tipoPlaneta?.setText(planeta.tipo)
-        descricaoPlaneta?.setText(planeta.descricao)
+    fun preencherCampos(posicao: Int){
+        imagemPlaneta?.setImageResource(listaPlanetas[posicao].numeroImagem)
+        nomePlaneta?.text = listaPlanetas[posicao].nome
+        tipoPlaneta?.text = listaPlanetas[posicao].tipo
+        descricaoPlaneta?.text = listaPlanetas[posicao].descricao
     }
 }

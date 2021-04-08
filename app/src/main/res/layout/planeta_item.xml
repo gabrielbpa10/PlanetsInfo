@@ -5,16 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
         android:background="#FFFFFF"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +26,12 @@
             <ImageView
                 android:id="@+id/planeta_item_imageview"
                 android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.056"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,16 +39,17 @@
                 android:id="@+id/planeta_item_textview_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
                 android:fontFamily="@font/aldrich"
                 android:text="TextView"
                 android:textColor="#B3B1B3"
                 android:textFontWeight="10"
                 android:textSize="23sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/planeta_item_imageview" />
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toEndOf="@+id/planeta_item_imageview"
+                app:layout_constraintTop_toTopOf="@+id/planeta_item_imageview" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

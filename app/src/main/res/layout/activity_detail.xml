@@ -8,79 +8,60 @@
     android:background="#000000"
     tools:context=".activity.DetailActivity">
 
-    <ImageView
-        android:id="@+id/activity_detail_imagem_planeta"
-        android:layout_width="0dp"
-        android:layout_height="233dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/jupter" />
-
-    <TextView
-        android:id="@+id/activity_detail_nome_planeta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:fontFamily="@font/aldrich"
-        android:text="TextView"
-        android:textColor="#B3B1B3"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_detail_imagem_planeta" />
-
-    <TextView
-        android:id="@+id/activity_detail_tipo_planeta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:fontFamily="@font/aldrich"
-        android:text="TextView"
-        android:textColor="#B3B1B3"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_detail_nome_planeta" />
-
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_detail_tipo_planeta">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ImageView
+                android:id="@+id/activity_detail_imagem_planeta"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="233dp" />
 
-                <TextView
-                    android:id="@+id/activity_detail_descricao_planeta"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/aldrich"
-                    android:text="TextView"
-                    android:textColor="#B3B1B3"
-                    android:textSize="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/activity_detail_nome_planeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:text="TextView"
+                android:textColor="#B3B1B3"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/activity_detail_tipo_planeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:text="TextView"
+                android:textColor="#B3B1B3"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/activity_detail_descricao_planeta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/aldrich"
+                android:text="TextView"
+                android:textColor="#B3B1B3"
+                android:textSize="18sp" />
+
         </LinearLayout>
     </ScrollView>
 

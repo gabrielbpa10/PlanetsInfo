@@ -1,6 +1,5 @@
 package br.com.gabriel.planetsinfo.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.gabriel.planetsinfo.R
 import br.com.gabriel.planetsinfo.model.Planeta
 
-class PlanetaAdapter (
-                        private val planetas:List<Planeta>,
-                        private val hashmapImages:HashMap<String,Int>
+class PlanetaAdapter(
+        private val planetas:List<Planeta>
 ): RecyclerView.Adapter<PlanetaAdapter.PlanetaViewHolder>() {
 
     private var listener: OnPlanetaItemListener? = null
@@ -28,7 +26,7 @@ class PlanetaAdapter (
 
     override fun onBindViewHolder(holder: PlanetaViewHolder, position: Int) {
         holder.itemNomePlaneta.text = planetas[position].nome
-        holder.itemImagemPlaneta.setImageResource(hashmapImages.get(planetas[position].nomeImagem)!!)
+        holder.itemImagemPlaneta.setImageResource(planetas[position].numeroImagem)
 
     }
 

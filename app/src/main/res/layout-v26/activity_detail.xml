@@ -62,9 +62,7 @@
                 android:justificationMode="inter_word"
                 android:text="TextView"
                 android:textColor="#B3B1B3"
-                android:textSize="18sp"
-                tools:targetApi="O"
-                android:breakStrategy="simple"/>
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>

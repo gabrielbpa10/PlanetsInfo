@@ -1,12 +1,15 @@
 package br.com.gabriel.planetsinfo.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import br.com.gabriel.planetsinfo.R
 import br.com.gabriel.planetsinfo.enum.Position
 import br.com.gabriel.planetsinfo.util.PlanetaRepository
+
 
 class DetailActivity : AppCompatActivity() {
 
@@ -23,6 +26,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
         carregarElementos()
         setTitle(tituloTela)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val intent = getIntent()
         val posicao = intent.getIntExtra(Position.POSICAO.name,valorDefault)
         if(posicao != valorDefault){
@@ -42,5 +47,9 @@ class DetailActivity : AppCompatActivity() {
         nomePlaneta?.text = listaPlanetas[posicao].nome
         tipoPlaneta?.text = listaPlanetas[posicao].tipo
         descricaoPlaneta?.text = listaPlanetas[posicao].descricao
+
+        if (Build.VERSION.SDK_INT >= 26) {
+            descricaoPlaneta?.justificationMode = JUSTIFICATION_MODE_INTER_WORD
+        }
     }
 }

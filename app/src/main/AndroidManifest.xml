@@ -4,18 +4,21 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_launcher_planets"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_launcher_foreground"
+        android:roundIcon="@mipmap/ic_launcher_planets_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlanetsInfo">
-        <activity android:name=".activity.DetailActivity"/>
-        <activity android:name=".activity.MainActivity">
+
+        <activity android:name=".activity.MainActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.DetailActivity"
+            android:parentActivityName=".activity.MainActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
